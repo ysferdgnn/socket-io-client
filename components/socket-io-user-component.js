@@ -1,17 +1,19 @@
 import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
-
-const SocketIOUserComponent = ({ room, username }) => {
-
+import { useRouter } from 'next/router';
+const SocketIOUserComponent = () => {
+    const router = useRouter();
     const [users, setUsers] = useState([]);
     const hostAdress = 'ws://localhost:8081';
     const [socket, setSocket] = useState(null);
+   
 
     useEffect(() => {
 
+        const { room, username } = router.query;
         let socket = io.connect(hostAdress + `?room=${room}&username=${username}`, {
             'transports': ['websocket', 'polling']
-        }); // Replace with your server URL
+        }); 
         setSocket(socket);
 
         socket.on('connect', () => {

@@ -1,0 +1,10 @@
+.roomWrapper{
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.roomHeader{
+    width: 100vw;
+    text-align: center;
+}
+

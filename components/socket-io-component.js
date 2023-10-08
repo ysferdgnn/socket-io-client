@@ -1,14 +1,18 @@
 import {useEffect, useState} from 'react';
 import io from 'socket.io-client';
-
-const SocketIOComponent = ({ room, username }) => {
+import styles from './socket-component.module.css'
+import { useRouter } from 'next/router';
+const SocketIOComponent = () => {
+    const router = useRouter();
     const [message, setMessage] = useState('');
     const [receivedMessages, setReceivedMessages] = useState([]);
     const hostAdress = 'ws://localhost:8081';
     const [socket, setSocket] = useState(null);
 
+    const { room, username } = router.query;
     useEffect(() => {
 
+        const { room, username } = router.query;
         let socket = io.connect(hostAdress + `?room=${room}&username=${username}`, {
             'transports': ['websocket', 'polling']
         }); // Replace with your server URL
@@ -49,17 +53,17 @@ const SocketIOComponent = ({ room, username }) => {
     };
 
     return <div>
-        <h1>Socket.io Client in Next.js</h1>
+        <h1></h1>
         <div>
        
-            <input type="text" placeholder="Enter your message"
+            <input type="text" className={styles.input} placeholder="Enter your message"
                 value={message}
                 onChange={
                     (e) => setMessage(e.target.value)
                 }/>
-            <button onClick={sendMessage}>Send</button>
+            <button className={styles.button} onClick={sendMessage}>Send</button>
         </div>
-        <p>Received Messages</p>
+        <h2>Message List</h2>
         <div>
             <ul> {
                 receivedMessages.map((receivedMessage, index) => (

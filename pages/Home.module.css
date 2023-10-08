@@ -1,0 +1,65 @@
+.disabled
+{
+  pointer-events: none;
+  opacity: 0.7;
+  visibility: hidden;
+  transition:visibility 0.3s ease-in-out,opacity 0.3s ease-in-out;
+}
+.rooms{
+  visibility: visible;
+  opacity: 1;
+  margin: auto;
+  text-align: center;
+ 
+}
+.rooms ul li{
+  list-style-type: none;
+  list-style: none;
+  border: 1px solid #212121;
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 1vw;
+  border-radius: 03vw;  
+  color: aliceblue;
+  background-color: #212121;
+
+}
+.mordor{
+  color: aliceblue;
+  background-color: brown;
+}
+
+
+
+
+.homeWrapper{
+  width: 50vw;
+  margin: auto;
+}
+
+.homeHeader{
+  margin: auto;
+  font-size: xx-large;
+  text-align: center;
+}
+
+.input {
+  border: 2px solid #e8e8e8;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #212121;
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+  width: 50vw;
+  color: #e8e8e8;
+ }
+ 
+ .input:focus {
+  outline-color: white;
+  background-color: #212121;
+  color: #e8e8e8;
+  
+ }
+
+
